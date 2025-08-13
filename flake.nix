@@ -72,7 +72,7 @@
 		home-manager = inputs.home-manager-stable;
 	in {
 		nixosConfigurations = {
-			system = pkgs.lib.nixosSystem {
+			system = inputs.nixpkgs.lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [./system/configuration.nix];
 				specialArgs = {
