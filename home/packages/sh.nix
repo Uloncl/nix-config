@@ -8,6 +8,14 @@
     htop = "btm";
   };
 in {
+  home.packages = with pkgs; [ 
+    zsh bash
+    pywal cava
+    direnv nix-direnv bat eza bottom fd unzip
+    libnotify timer
+    vim neovim
+  ];
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -16,13 +24,6 @@ in {
   programs.bash = {
     enable = true;
   };
-
-  home.packages = with pkgs; [ 
-    fastfetch onefetch pywal starfetch cava
-    direnv nix-direnv bat eza bottom fd unzip
-    libnotify timer
-    vim neovim
-  ];
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;

@@ -27,6 +27,11 @@
 			url = "github:nixos-community/stylix/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		import-tree = { # import tree for automatically importing all nix files under a directory
+			url = "github:vic/import-tree";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager, ... } @ inputs: let 
@@ -46,8 +51,8 @@
 			windowManager = "hyprland";
 			windowManagerType = if ((wm == "hyprland") || (wm == "plasma")) then "wayland" else "x11";
 			browser = "firefox"; # preferably arc browser but might be more complex to setup
-			font = ""; # idk yet probably one of the minecraft ones
-			fontPkg = ;
+			font = "Hurmit"; # not totally sure might go for a pixelated one idk https://www.nerdfonts.com/font-downloads
+			fontPkg = pkgs.nerd-fonts.hurmit;
 			# editor = "nano"; # im assuming cmd editor and idk if were gonna go back to neovim
 		};
 

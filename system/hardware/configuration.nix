@@ -9,6 +9,7 @@
 		./file-systems.nix
 		./booloader.nix
 		./graphics.nix
+		./sleep.nix
 	];
 
 	# Use latest kernel.
