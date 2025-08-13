@@ -5,14 +5,14 @@
 { inputs, lib, config, pkgs, systemSettings, userSettings, ... }: {
 	# Include the results of the hardware scan.
 	imports = [ 
-		./hardware/configuration.nix { inherit systemSettings; }
+		./hardware/configuration.nix
 		./features.nix # enable flakes here
 		./permitted-insecure.nix # list of any insecure packages we wanna add
 		./garbage-collection.nix # settings for automatic generation garbage collection 
 		(./. + "../../system/packages/window-manager/${userSettings.windowManager}.nix")
 		./packages/mullvad.nix # get me the fuck out of the uk
 		./packages/steam.nix # who out here gaymin
-		./packages/stylix.nix # for theming stuff
+		# ./packages/stylix.nix # for theming stuff
 	];
 
 	# Define your hostname.
@@ -45,7 +45,6 @@
 		# shells = with pkgs [ zsh ];
 	};
 
-	users.defaultShell = pkgs.zsh;
 	programs.zsh.enable = true;
 
 	fonts.fontDir.enable = true;

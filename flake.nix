@@ -45,6 +45,7 @@
 			hostname = "kircheis"; # LOTGH reference go watch
 			profile = "personal";
 			timezone = "Europe/Isle_of_Man";
+			locale = "en_GB.UTF-8";
 		};
 
 		userSettings = {

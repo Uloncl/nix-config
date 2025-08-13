@@ -2,7 +2,7 @@
   themeDir = "../../themes/${userSettings.theme}";
   themePath = "${themeDir}/${userSettings.theme}.yaml";
   themePolarity = lib.removeSuffix "\n" (builtins.readFile "${themeDir}/polarity.txt" ) ;
-  backgroundPath = builtins.readFile ( "${themeDir}/background.txt" );
+  backgroundPath = builtins.readFile ( ./. + "../../themes/${themeDir}/background.txt" );
 in {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
