@@ -11,6 +11,7 @@
 		./packages/clipboard.nix # clipboard config
 		./packages/discord.nix # discord config
 		./packages/fetch.nix # fastfetch one(git)fetch and starfetch config
+		./packages/git.nix # git config
 		./packages/language-servers.nix # support for some languages
 		# ./packages/nvim.nix # nvim config
 		./packages/obs.nix # obs config
