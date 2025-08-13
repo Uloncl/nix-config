@@ -24,14 +24,19 @@
 		};
 
 		stylix = { # stylix for automatically loading themes
-			url = "github:nixos-community/stylix/release-25.05";
+			url = "github:nix-community/stylix/release-25.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		import-tree = { # import tree for automatically importing all nix files under a directory
-			url = "github:vic/import-tree";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# import-tree = { # import tree for automatically importing all nix files under a directory
+		# 	url = "github:vic/import-tree";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
+
+    zen-browser = { # a better browser ill setup later
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 	};
 
 	outputs = { self, nixpkgs, home-manager, ... } @ inputs: let 
@@ -49,14 +54,14 @@
 			dotfilesDir = "~/.config";
 			theme = ""; # once we figure that out and probably make our own
 			windowManager = "hyprland";
-			windowManagerType = if ((wm == "hyprland") || (wm == "plasma")) then "wayland" else "x11";
+			windowManagerType = "wayland";
 			browser = "firefox"; # preferably arc browser but might be more complex to setup
 			font = "Hurmit"; # not totally sure might go for a pixelated one idk https://www.nerdfonts.com/font-downloads
 			fontPkg = pkgs.nerd-fonts.hurmit;
 			# editor = "nano"; # im assuming cmd editor and idk if were gonna go back to neovim
 		};
 
-		pkgs = import inputs.nixpkgs-stable {
+		pkgs = import inputs.nixpkgs {
 			system = systemSettings.system;
 			config = {
 				allowUnfree = true;
@@ -67,7 +72,7 @@
 		home-manager = inputs.home-manager-stable;
 	in {
 		nixosConfigurations = {
-			system = lib.nixosSystem {
+			system = pkgs.lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [./system/configuration.nix];
 				specialArgs = {
