@@ -54,9 +54,9 @@
 			email = "nebulous7554@gmail.com";
 			dotfilesDir = "~/.config";
 			theme = ""; # once we figure that out and probably make our own
-			windowManager = "hyprland";
+			windowManager = "x11";
 			windowManagerType = "wayland";
-			browser = "firefox"; # preferably arc browser but might be more complex to setup
+			browser = "firefox"; # preferably zen browser but might be more complex to setup
 			font = "Hurmit"; # not totally sure might go for a pixelated one idk https://www.nerdfonts.com/font-downloads
 			fontPkg = pkgs.nerd-fonts.hurmit;
 			# editor = "nano"; # im assuming cmd editor and idk if were gonna go back to neovim
