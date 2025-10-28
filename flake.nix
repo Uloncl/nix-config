@@ -10,33 +10,33 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		hyprland = { # base hyprland window manager
-			url = "github:hyprwm/Hyprland/v0.50.1";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		hyprlock = { # hyprland lock screen manager
-			url = "github:hyprwm/Hyprlock/v0.9.1";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		hyprland-plugins = { # plugins for hyprland
-			url = "github:hyprwm/Hyprland-plugins/v0.50.0";
-			inputs.nixpkgs.follows = "hyprland";
-		};
+		# hyprland = { # base hyprland window manager
+		# 	url = "github:hyprwm/Hyprland/v0.50.1";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
+		# hyprlock = { # hyprland lock screen manager
+		# 	url = "github:hyprwm/Hyprlock/v0.9.1";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
+		# hyprland-plugins = { # plugins for hyprland
+		# 	url = "github:hyprwm/Hyprland-plugins/v0.50.0";
+		# 	inputs.nixpkgs.follows = "hyprland";
+		# };
 
-		stylix = { # stylix for automatically loading themes
-			url = "github:nix-community/stylix/release-25.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# stylix = { # stylix for automatically loading themes
+		# 	url = "github:nix-community/stylix/release-25.05";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 
 		# import-tree = { # import tree for automatically importing all nix files under a directory
 		# 	url = "github:vic/import-tree";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
 		# };
 
-    zen-browser = { # a better browser ill setup later
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+		zen-browser = { # a better browser ill setup later
+			url = "github:youwen5/zen-browser-flake";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager, ... } @ inputs: let 
@@ -73,7 +73,7 @@
 		home-manager = inputs.home-manager-stable;
 	in {
 		nixosConfigurations = {
-			system = inputs.nixpkgs.lib.nixosSystem {
+			nixos = inputs.nixpkgs.lib.nixosSystem {
 				system = systemSettings.system;
 				modules = [./system/configuration.nix];
 				specialArgs = {
