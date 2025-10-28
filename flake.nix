@@ -23,15 +23,15 @@
 		# 	inputs.nixpkgs.follows = "hyprland";
 		# };
 
-		# stylix = { # stylix for automatically loading themes
-		# 	url = "github:nix-community/stylix/release-25.05";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		stylix = { # stylix for automatically loading themes
+			url = "github:nix-community/stylix/release-25.05";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-		# import-tree = { # import tree for automatically importing all nix files under a directory
-		# 	url = "github:vic/import-tree";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
+		import-tree = { # import tree for automatically importing all nix files under a directory
+			url = "github:vic/import-tree";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
 		zen-browser = { # a better browser ill setup later
 			url = "github:youwen5/zen-browser-flake";
